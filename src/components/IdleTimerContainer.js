@@ -34,7 +34,7 @@ function IdleTimerContainer() {
     <div>
       {isLoggedIn ? <h2> Hello Sharukh </h2> : <h2> You are logged out</h2>}
       <Modal isOpen={modalIsOpen}>
-        <h2> You have be Idle for a while</h2>
+        <h2> You have been Idle for a while</h2>
         <p>You'll be logged out soon</p>
         <button onClick={logOut}>Log me out</button>
         <button onClick={stayLoggedIn}>Keep me signed in</button>
