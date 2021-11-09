@@ -9,20 +9,25 @@ function IdleTimerContainer() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const IdleTimerRef = useRef(null);
+  // const sessionTimeoutRef = useRef(null);
 
   const onIdle = () => {
-    console.log("You are idle for 5 seconds");
     setModalIsOpen(true);
+    console.log("You are idle for 5 seconds");
+    // sessionTimeoutRef.current = setTimeout(logOut, 5000);
   };
+
   const logOut = () => {
     setModalIsOpen(false);
     setIsLoggedIn(false);
     console.log("User has logged out");
+    // clearTimeout(sessionTimeoutRef.current);
   };
 
   const stayLoggedIn = () => {
     setModalIsOpen(false);
     console.log("User is active");
+    // clearTimeout(sessionTimeoutRef.current);
   };
 
   return (
