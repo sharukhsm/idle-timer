@@ -30,6 +30,13 @@ function IdleTimerContainer() {
     // clearTimeout(sessionTimeoutRef.current);
   };
 
+  window.addEventListener("beforeunload", (event) => {
+    // Cancel the event as stated by the standard.
+    event.preventDefault();
+    // Chrome requires returnValue to be set.
+    event.returnValue = "want to close?";
+  });
+
   return (
     <div>
       {isLoggedIn ? <h2> Hello Sharukh </h2> : <h2> You are logged out</h2>}
@@ -39,7 +46,7 @@ function IdleTimerContainer() {
         <button onClick={logOut}>Log me out</button>
         <button onClick={stayLoggedIn}>Keep me signed in</button>
       </Modal>
-      <IdleTimer ref={IdleTimerRef} timeout={5000} onIdle={onIdle}></IdleTimer>
+      <IdleTimer ref={IdleTimerRef} timeout={10000} onIdle={onIdle}></IdleTimer>
     </div>
   );
 }
