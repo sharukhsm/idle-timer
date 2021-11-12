@@ -30,11 +30,12 @@ function IdleTimerContainer() {
     // clearTimeout(sessionTimeoutRef.current);
   };
 
-  window.addEventListener("beforeunload", (event) => {
-    // Cancel the event as stated by the standard.
-    event.preventDefault();
-    // Chrome requires returnValue to be set.
-    event.returnValue = "want to close?";
+  //Tab close event
+  window.addEventListener("beforeunload", function (e) {
+    // Cancel the event
+    e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+    // Chrome requires returnValue to be set
+    e.returnValue = "";
   });
 
   return (
